@@ -1,68 +1,121 @@
 :root {
-	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-	line-height: 1.5;
+	/* Light theme (default) */
+	--c-bg: #f4f6fb;
+	--c-bg-soft: #eef1f8;
+	--c-surface: #ffffff;
+	--c-surface-alt: #f0f3f9;
+	--c-border: #e0e4ec;
+	--c-border-ui: #c3ccd9;
+	--c-text: #2d3748;
+	--c-heading: #1a202c;
+	--c-muted: #4a5568;
+	--c-accent: #2563eb;
+	--c-accent-strong: #1a40d8;
+	--c-accent-light: #5b8def;
+	--c-accent-soft: rgba(37, 99, 235, 0.1);
+	--c-nav-active-bg: rgba(26, 64, 216, 0.08);
+	--c-nav-hover: rgba(26, 64, 216, 0.06);
+	--c-success: #16a34a;
+	--c-dot-green: #16a34a;
+	--c-terminal-bg: #1a1d24;
+	--c-terminal-text: #e6edf3;
+	--c-terminal-accent: #5b8def;
+	--c-terminal-caret: #34d399;
+	--c-shadow-sm: rgba(103, 118, 128, 0.06);
+	--c-shadow-md: rgba(103, 118, 128, 0.12);
+	--c-shadow-lg: rgba(103, 118, 128, 0.16);
+	--c-gradient: linear-gradient(142.17deg, #2563eb 6.66%, #1a40d8 91.48%);
+
+	--font-body: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+		Arial, sans-serif;
+	--font-mono: ui-monospace, "JetBrains Mono", "Fira Code", "SF Mono",
+		"Cascadia Code", Menlo, Consolas, monospace;
+
+	font-family: var(--font-body);
+	line-height: 1.6;
 	font-weight: 400;
-
-	color-scheme: light dark;
-	color: rgba(255, 255, 255, 0.87);
-	background-color: #242424;
-
+	color-scheme: light;
+	color: var(--c-text);
+	background-color: var(--c-bg);
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
 
-a {
-	font-weight: 500;
-	color: #646cff;
-	text-decoration: inherit;
+html[data-theme="dark"] {
+	--c-bg: #0d0e12;
+	--c-bg-soft: #111318;
+	--c-surface: #16181f;
+	--c-surface-alt: #1a1d24;
+	--c-border: #262a34;
+	--c-border-ui: #3a3f4b;
+	--c-text: #e6edf3;
+	--c-heading: #f0f3f9;
+	--c-muted: #8b8fa3;
+	--c-accent: #5b8def;
+	--c-accent-strong: #3b82f6;
+	--c-accent-light: #7aa0ef;
+	--c-accent-soft: rgba(91, 141, 239, 0.14);
+	--c-nav-active-bg: rgba(91, 141, 239, 0.16);
+	--c-nav-hover: rgba(91, 141, 239, 0.1);
+	--c-success: #34d399;
+	--c-dot-green: #34d399;
+	--c-shadow-sm: rgba(0, 0, 0, 0.35);
+	--c-shadow-md: rgba(0, 0, 0, 0.5);
+	--c-shadow-lg: rgba(0, 0, 0, 0.6);
+	--c-gradient: linear-gradient(142.17deg, #3b82f6 6.66%, #1a40d8 91.48%);
+	color-scheme: dark;
 }
-a:hover {
-	color: #535bf2;
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: 84px;
+	overflow-x: clip;
 }
 
 body {
 	margin: 0;
-	display: flex;
-	place-items: center;
 	min-width: 320px;
 	min-height: 100vh;
+	background: var(--c-bg);
+	color: var(--c-text);
+	overflow-x: clip;
 }
 
-h1 {
-	font-size: 3.2em;
-	line-height: 1.1;
+a {
+	color: var(--c-accent);
+	text-decoration: none;
+}
+a:hover {
+	color: var(--c-accent-strong);
+}
+
+h1,
+h2,
+h3,
+p {
+	margin: 0;
 }
 
 button {
-	border-radius: 8px;
-	border: 1px solid transparent;
-	padding: 0.6em 1.2em;
-	font-size: 1em;
-	font-weight: 500;
 	font-family: inherit;
-	background-color: #1a1a1a;
 	cursor: pointer;
-	transition: border-color 0.25s;
-}
-button:hover {
-	border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-	outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-	:root {
-		color: #213547;
-		background-color: #ffffff;
-	}
-	a:hover {
-		color: #747bff;
-	}
-	button {
-		background-color: #f9f9f9;
+img {
+	max-width: 100%;
+	display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
 	}
 }

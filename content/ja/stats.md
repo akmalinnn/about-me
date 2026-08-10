@@ -1,0 +1,4 @@
+- 3 | 年の経験 | /resume#experience
+- 10+ | プロジェクト・役割 | /portfolio
+- 20+ | 技術 | /resume#skills
+- 4 | 資格 | /resume

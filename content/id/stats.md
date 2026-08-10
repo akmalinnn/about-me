@@ -1,0 +1,4 @@
+- 3 | Tahun pengalaman | /resume#experience
+- 10+ | Proyek & peran | /portfolio
+- 20+ | Teknologi | /resume#skills
+- 4 | Sertifikasi | /resume

@@ -1,0 +1,4 @@
+- 3 | Years of experience | /resume#experience
+- 10+ | Projects & roles | /portfolio
+- 20+ | Technologies | /resume#skills
+- 4 | Certifications | /resume

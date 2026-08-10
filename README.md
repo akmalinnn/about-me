@@ -1,90 +1,70 @@
-# React + Vite + Hono + Cloudflare Workers
+# Akmal Nafis — Portfolio
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/templates/tree/main/vite-react-template)
+Personal portfolio website built with **React + TypeScript + Vite**, deployed on
+**Cloudflare Pages**. All content is data-driven from Markdown files, so it's easy
+to maintain without touching code.
 
-This template provides a minimal setup for building a React application with TypeScript and Vite, designed to run on Cloudflare Workers. It features hot module replacement, ESLint integration, and the flexibility of Workers deployments.
+## ✨ Features
 
-![React + TypeScript + Vite + Cloudflare Workers](https://imagedelivery.net/wSMYJvS3Xw-n339CbDyDIA/fc7b4b62-442b-4769-641b-ad4422d74300/public)
+- 🖥️ "Operator console" developer theme with light/dark toggle
+- 🌍 Multi-language: **EN · ID · JA** (switchable in the header, remembered)
+- 📄 Content-driven from Markdown (`content/{en,id,ja}/*.md`) — add skills/projects by editing Markdown only
+- 🗂️ Multi-page with client-side routing: Home (`/`), Portfolio (`/portfolio`), Resume (`/resume`)
+- 🧩 Animated terminal showing the DevOps system scheme behind this site
+- 📱 Fully responsive · ⚡ Static at build time
 
-<!-- dash-content-start -->
+## 📁 Project structure
 
-🚀 Supercharge your web development with this powerful stack:
-
-- [**React**](https://react.dev/) - A modern UI library for building interactive interfaces
-- [**Vite**](https://vite.dev/) - Lightning-fast build tooling and development server
-- [**Hono**](https://hono.dev/) - Ultralight, modern backend framework
-- [**Cloudflare Workers**](https://developers.cloudflare.com/workers/) - Edge computing platform for global deployment
-
-### ✨ Key Features
-
-- 🔥 Hot Module Replacement (HMR) for rapid development
-- 📦 TypeScript support out of the box
-- 🛠️ ESLint configuration included
-- ⚡ Zero-config deployment to Cloudflare's global network
-- 🎯 API routes with Hono's elegant routing
-- 🔄 Full-stack development setup
-- 🔎 Built-in Observability to monitor your Worker
-
-Get started in minutes with local development or deploy directly via the Cloudflare dashboard. Perfect for building modern, performant web applications at the edge.
-
-<!-- dash-content-end -->
-
-## Getting Started
-
-To start a new project with this template, run:
-
-```bash
-npm create cloudflare@latest -- --template=cloudflare/templates/vite-react-template
+```
+content/                  # All portfolio content (edit these to update the site)
+  en/ id/ ja/             # English · Bahasa Indonesia · 日本語
+  profile.jpg             # profile photo
+  cv.pdf                  # CV used by the Download button
+src/react-app/
+  content.ts              # loads + parses Markdown into data (all languages)
+  i18n.ts                 # UI strings + terminal script per language
+  language.tsx            # language provider
+  theme.tsx               # light/dark theme provider
+  components/             # Layout, Hero, Terminal, Section, ...
+  pages/                  # HomePage, PortfolioPage, ResumePage
+  markdown.ts             # markdown-it wrapper
 ```
 
-A live deployment of this template is available at:
-[https://react-vite-template.templates.workers.dev](https://react-vite-template.templates.workers.dev)
+## 📝 Editing content
 
-## Development
+See [`content/README.md`](content/README.md) for the full guide. In short:
 
-Install dependencies:
+- **Add a skill** → add `- SkillName` under a category in `content/<lang>/skills.md`
+- **Add a project** → add a `### Title` block to `content/<lang>/projects.md` (with `**Category:**`)
+- **Change roles / status** → edit `content/<lang>/profile.md`
+- **Swap photo / CV** → replace `content/profile.jpg` / `content/cv.pdf`
+
+No React code changes required.
+
+## 🚀 Development
 
 ```bash
 npm install
+npm run dev       # local dev at http://localhost:5173
 ```
 
-Start the development server with:
+## ☁️ Deploy to Cloudflare Pages
 
-```bash
-npm run dev
-```
+This is a static Vite SPA (build output is `dist/`). To deploy:
 
-Your application will be available at [http://localhost:5173](http://localhost:5173).
+1. Push the repo to GitHub.
+2. In Cloudflare Pages → **Create project** → connect the repo.
+3. Build settings:
+   - **Framework preset:** Vite
+   - **Build command:** `npm run build`
+   - **Build output directory:** `dist`
+4. Deploy. Client-side routing works out of the box via `public/_redirects`
+   (`/* /index.html 200`).
 
-## Production
+## 📄 Technology
 
-Build your project for production:
-
-```bash
-npm run build
-```
-
-Preview your build locally:
-
-```bash
-npm run preview
-```
-
-Deploy your project to Cloudflare Workers:
-
-```bash
-npm run build && npm run deploy
-```
-
-Monitor your workers:
-
-```bash
-npx wrangler tail
-```
-
-## Additional Resources
-
-- [Cloudflare Workers Documentation](https://developers.cloudflare.com/workers/)
-- [Vite Documentation](https://vitejs.dev/guide/)
-- [React Documentation](https://reactjs.org/)
-- [Hono Documentation](https://hono.dev/)
+- [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- [React Router](https://reactrouter.com/) for multi-page routing
+- [Vite](https://vite.dev/)
+- [markdown-it](https://github.com/markdown-it/markdown-it) for Markdown rendering
+- [Poppins](https://fonts.google.com/specimen/Poppins) for typography
