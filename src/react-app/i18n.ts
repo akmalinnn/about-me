@@ -86,7 +86,7 @@ const en: Strings = {
 		unknown: "bash: {cmd}: command not found",
 		denied: "bash: {cmd}: permission denied",
 	},
-	footerNote: "Built with React + Vite + Cloudflare Pages. All systems operational.",
+	footerNote: "Built with React + Vite + Cloudflare Workers. All systems operational.",
 };
 
 const id: Strings = {
@@ -139,7 +139,7 @@ const id: Strings = {
 		unknown: "bash: {cmd}: perintah tidak ditemukan",
 		denied: "bash: {cmd}: izin ditolak",
 	},
-	footerNote: "Dibangun dengan React + Vite + Cloudflare Pages. Semua sistem beroperasi normal.",
+	footerNote: "Dibangun dengan React + Vite + Cloudflare Workers. Semua sistem beroperasi normal.",
 };
 
 const ja: Strings = {
@@ -192,7 +192,7 @@ const ja: Strings = {
 		unknown: "bash: {cmd}: コマンドが見つかりません",
 		denied: "bash: {cmd}: 権限がありません",
 	},
-	footerNote: "React + Vite + Cloudflare Pages で構築。全システム正常稼働中。",
+	footerNote: "React + Vite + Cloudflare Workers で構築。全システム正常稼働中。",
 };
 
 export const stringsByLang: Record<Language, Strings> = { en, id, ja };

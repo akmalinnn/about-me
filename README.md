@@ -1,8 +1,8 @@
 # Akmal Nafis — Portfolio
 
 Personal portfolio website built with **React + TypeScript + Vite**, deployed on
-**Cloudflare Pages**. All content is data-driven from Markdown files, so it's easy
-to maintain without touching code.
+**Cloudflare Workers** (static assets). All content is data-driven from Markdown
+files, so it's easy to maintain without touching code.
 
 ## ✨ Features
 
@@ -48,18 +48,17 @@ npm install
 npm run dev       # local dev at http://localhost:5173
 ```
 
-## ☁️ Deploy to Cloudflare Pages
+## ☁️ Deploy to Cloudflare Workers (with static assets)
 
-This is a static Vite SPA (build output is `dist/`). To deploy:
+This is a static Vite SPA (build output is `dist/`), served by Cloudflare Workers
+as static assets. `wrangler.json` points the `assets` directory at `dist` and sets
+`not_found_handling: single-page-application`, so client-side routes (`/`,
+`/portfolio`, `/resume`) work natively — no `_redirects` file is needed.
 
-1. Push the repo to GitHub.
-2. In Cloudflare Pages → **Create project** → connect the repo.
-3. Build settings:
-   - **Framework preset:** Vite
-   - **Build command:** `npm run build`
-   - **Build output directory:** `dist`
-4. Deploy. Client-side routing works out of the box via `public/_redirects`
-   (`/* /index.html 200`).
+```bash
+npm run build      # produces dist/
+npm run deploy     # wrangler deploy — uploads dist/ as worker assets
+```
 
 ## 📄 Technology
 
